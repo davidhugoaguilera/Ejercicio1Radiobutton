@@ -1,25 +1,32 @@
 from tkinter import *
 
+
+def seleccionado():
+    monitor.config(text="{}".format(opcion.get()))
+    
+def reset():
+    opcion.set(None)
+    monitor.config(text="")
+    
 root = Tk()
 
-x = IntVar()
+opcion = StringVar()
+opcion.set(None)
 
 
-def salir(event)
-    print("salir")
-    x.quit()
+Radiobutton(root, text="Iphone", variable=opcion,
+            value= 'Iphone', command=seleccionado).pack(anchor=w)
 
+Radiobutton(root, text="Samsung", variable=opcion,
+            value= 'Samsung', command=seleccionado).pack(anchor=w)
 
-Label(root, text="Seleccione una opción").grid(row=0)
-
-Radiobutton(root,
-            text="Esta es la primera opción.",
-            value=1,
-            variable=x, command=lambda: actualiza(x.get())).grid(row=1)
-
-Radiobutton(root,
-            text="Esta es la segunda opción.",
-            value=2,
-            variable=x, command=lambda: actualiza(x.get())).grid(row=2)
-
+Radiobutton(root, text="Motorola", variable=opcion,
+            value= 'Motorola', command=seleccionado).pack(anchor=w)
+            
+Radiobutton(root, text="Lenovo", variable=opcion,
+            value= 'Lenovo', command=seleccionado).pack(anchor=w)
+            
+monitor = label(root)
+monitor.pack()
+Button(root, text="Reiniciar",command=reset).pack()
 root.mainloop()
